@@ -5,6 +5,7 @@ const prefix = '+'
 
 
 client.on('ready', () => {
+client.user.setStatus("dnd");
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
