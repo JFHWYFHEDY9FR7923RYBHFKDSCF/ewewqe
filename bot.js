@@ -227,7 +227,7 @@ if (message.content.startsWith(prefix + 'trans')) {
     
         const embed = new Discord.RichEmbed()
             .setColor("FFFFFF")
-            .setDescription("**ترجمة الكتابة.**\استعمل: `-translate <الكلمة لتبي> <االغة>`");
+            .setDescription("**ترجمة الكتابة.**\استعمل: `+translate <الكلمة لتبي> <االغة>`");
 
         return message.channel.send(embed);
 
@@ -349,26 +349,6 @@ client.on('message' , message => {
 
 
 
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '✵-「p-chat');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return; 
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField('🎽 | name :  ',`${member}`)
-        .addField('📢 | نورت السيرفر ي قلبي' , `Welcome to the server, ${member}`)
-        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                      
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                       
-     .setFooter("**Family team **")
-        .setTimestamp()
-    
-      channel.sendEmbed(embed);
-    });
+
 
 client.login(process.env.BOT_TOKEN);
