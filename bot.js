@@ -321,7 +321,7 @@ client.on('message', message => {
        if(message.content.startsWith(prefix + 'تفعيل')) {
         let modlog = client.channels.find('name', 'فعل-نفسك');
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-       message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
+       message.channel.sendMessage(`**نورت سيرفر لاست كودز اضغط على الصح لتفعيل نفسك**`).then(msg => {
        
        
         msg.react('✅')
@@ -338,7 +338,7 @@ client.on('message', message => {
                                    message.member.addRole(message.guild.roles.find("name", "• Last » Member"));
                                    message.member.removeRole(message.guild.roles.find("name", "not active"));
                                    msg.delete();
-                                   message.channel.send(`**تم تفعيلك استمتع.**`).then(m => m.delete(1000));
+                                   message.channel.send(`**تم تفعيل نفسك استمتع**`).then(m => m.delete(1000));
      
                                    })
                                    })
