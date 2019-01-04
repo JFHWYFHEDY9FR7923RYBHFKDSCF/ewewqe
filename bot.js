@@ -529,7 +529,7 @@ j = 1;
             j = -1;    
       }    
        i = i+j;    
-        client.user.setGame(setGame[i],`https://www.twitch.tv/dggamingbot);    
+          client.user.setGame("https://www.twitch.tv/dggamingbot")   
 }, ms);    
     
 });
