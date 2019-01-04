@@ -519,8 +519,6 @@ collector7.on('collect', r => {
 
 
 client.on('ready', () => {
-client.user.setStatus("dnd");
-client.user.setGame(`+help | +inv ${client.guilds.size} Servers  `,"https://www.twitch.tv/dggamingbot")
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
