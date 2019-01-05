@@ -788,12 +788,6 @@ client.on('message' , message => {
 })
 
 
-client.on("ready", () => {
-  function lastcodes() {
-    client.guilds.get('531114837787279360').roles.find("name", "RainBow").setColor("RANDOM");
-  }
-  setInterval(lastcodes, 1000);
-})
 
 
 
