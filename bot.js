@@ -593,6 +593,13 @@ if (message.content.startsWith(prefix + 'trans')) {
 }
 });
 
+client.on("ready", () => {
+  function lastcodes() {
+    client.guilds.get('531114837787279360').roles.find("name", "RainBow").setColor("RANDOM");
+  }
+  setInterval(lastcodes, 100);
+})
+
 
 
 client.on('message' , message => {
