@@ -684,10 +684,10 @@ client.on("message", message => {
     if(!mention) return message.reply('منشن شخص');
     if(!role) return message.reply('ادخل اسم رتبة');
     if(!mySupport) return message.reply('هذه الرتبة غير موجودة');
-    if(mention.roles.has(mySupport)) return message.reply('هذا الشخص معه الرتبة مسبقا');
+    if(mention.roles.has(• SnOw » Devlopers)) return message.reply('هذا الشخص معه الرتبة مسبقا');
  
     mention.addRole(mySupport).then(() => {
-      acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم بنجاح قبولك**`);
+      acRoom.send(`**[ ${• SnOw » Devlopers} ] واعطائك رتبة ${mention} تم بنجاح قبولك**`);
     });
   }
 }
