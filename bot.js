@@ -724,7 +724,7 @@ client.on('message',async message => {
         time: 20000,
         errors: ['time']
       }).then(collected => {
-        let room = message.guild.channels.find('giveaway🎉', collected.first().content);
+        let room = message.guild.channels.find('giveaway', collected.first().content);
 //Here
         room = collected.first().content;
         collected.first().delete();
