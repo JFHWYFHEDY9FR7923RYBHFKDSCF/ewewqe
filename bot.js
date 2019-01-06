@@ -593,9 +593,7 @@ if (message.content.startsWith(prefix + 'trans')) {
 }
 });
 
-client.on('guildMemberAdd', m => {
-m.addRole(m.guild.roles.find(r => r.name === "SnOw » Members"));
-});
+
 
 
 client.on("message", message => {
