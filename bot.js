@@ -16,9 +16,14 @@ const ytdl = require('ytdl-core');
 
 const fs = require('fs');
 
+const gif = require("gif-search");
+
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "+";
+const prefix = "4";
+var adminprefix = '4'
+/////////////////////////
+////////////////////////
 
  client.on('message', async msg => {
     if (msg.author.bot) return undefined;
@@ -93,8 +98,8 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
             return handleVideo(video, msg, voiceChannel);
         }
     } else if (command === `skip`) {
-        if (!msg.member.voiceChannel) return msg.channel.send('يجب تواجدك بروم صوتي | :x:');
-        if (!serverQueue) return msg.channel.send('**يجب تشغيل مقطع لطغطيه | :x:**');
+        if (!msg.member.voiceChannel) return msg.channel.send('انت لست في روم صوتي | :x:');
+        if (!serverQueue) return msg.channel.send('**يجب تشغيل مقطع لتخطيه | :x:**');
         serverQueue.connection.dispatcher.end('**تم بنجاح | :white_check_mark:**');
         return undefined;
     } else if (command === `stop`) {
@@ -195,7 +200,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
  
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
- 
     if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
@@ -309,7 +313,7 @@ function play(guild, song) {
 })
 })
 }
-});
+})
 
 
 
