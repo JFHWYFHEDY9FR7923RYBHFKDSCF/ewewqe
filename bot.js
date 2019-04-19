@@ -534,8 +534,63 @@ var cont = message.content.slice(prefix.length).split(" ");
 
 
 
+client.on('message', msg => { 
+if (msg.content.startsWith(`+sug`)) {
+// تعريف الارجس
+   let args = msg.content.split(" ").slice(1);
+// لو ما منشن احد يرد عيله
+  if (!args[1]) return msg.reply(`اكتب اقتراحك`)
+// استبدل <الروم> بأسم الروم حقك
+    msg.guild.channels.find('name', 'suggests').send(`
+  صاحب الاقتراح  : ${msg.member}
+  الاقتراح : **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+  `)
+  }
+})
 
 
+client.on('message', msg => { 
+if (msg.content.startsWith(`+report`)) {
+// تعريف الارجس
+   let args = msg.content.split(" ").slice(1);
+// لو ما منشن احد يرد عيله
+  if (!msg.mentions.members.first()) return msg.reply(`يجب عليك منشن شخص`)
+// لو ما كتب تبليغ بيقوله اكتب تبليغ
+  if (!args[1]) return msg.reply(`اكتب تبيلغك`)
+// استبدل <الروم> بأسم الروم حقك
+    msg.guild.channels.find('name', 'report').send(`
+  تبليغ على : ${msg.mentions.members.first()}
+  بلغ عليه من قبل : ${msg.member}
+  في روم : ${msg.channel.name}
+  السبب : **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+  `)
+  }
+})
+
+
+	client.on('message', message => {
+    if (message.content.startsWith("+bans")) {
+        message.guild.fetchBans()
+        .then(bans => message.channel.send(`${bans.size} عدد اشخاص المبندة من السيرفر `))
+  .catch(console.error);
+}
+});
+
+
+client.on('message', message => { 
+    if (message.content.startsWith(prefix + 'ranks')) {
+
+        const Rank = message.guild.roles.map(e => e.toString()).join(" ");
+
+        const RankList = new Discord.RichEmbed()
+            .setTitle('➠ Roles.') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(Rank) 
+            .setFooter(message.guild.name) 
+        message.channel.send(RankList) 
+    }
+});
 
 
 
