@@ -539,7 +539,7 @@ if (msg.content.startsWith(`+sug`)) {
 // تعريف الارجس
    let args = msg.content.split(" ").slice(1);
 // لو ما منشن احد يرد عيله
-  if (!args[1]) return msg.reply(`اكتب اقتراحك`)
+  if (!args[1]) return msg.reply(`منشن نفسك واكتب اقتراحك `)
 // استبدل <الروم> بأسم الروم حقك
     msg.guild.channels.find('name', 'suggests').send(`
   صاحب الاقتراح  : ${msg.member}
@@ -551,7 +551,7 @@ if (msg.content.startsWith(`+sug`)) {
 client.on('message', message => {
      if(!message.channel.guild) return;
 var prefix = "+";
-                if(message.content.startsWith(prefix + 'bots')) {
+                if(message.content.startsWith(prefix + 'allbots')) {
 
     
     if (message.author.bot) return;
@@ -559,7 +559,7 @@ var prefix = "+";
         const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
           const embed = new Discord.RichEmbed()
           .setAuthor(message.author.tag, message.author.avatarURL)
-          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+          .setDescription(`**بوتات في هذا السيرفر ${message.guild.members.filter(m=>m.user.bot).size} تم وجود**
 ${botssize.join('\n')}`)
 .setFooter(client.user.username, client.user.avatarURL)
 .setTimestamp();
