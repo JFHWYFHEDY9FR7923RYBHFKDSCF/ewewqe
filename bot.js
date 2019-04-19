@@ -559,7 +559,7 @@ var prefix = "+";
         const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
           const embed = new Discord.RichEmbed()
           .setAuthor(message.author.tag, message.author.avatarURL)
-          .setDescription(`**بوتات في هذا السيرفر ${message.guild.members.filter(m=>m.user.bot).size} تم وجود**
+          .setDescription(`**تم وجود ${message.guild.members.filter(m=>m.user.bot).size} بوتات في هذا السيرفر**
 ${botssize.join('\n')}`)
 .setFooter(client.user.username, client.user.avatarURL)
 .setTimestamp();
