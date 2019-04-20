@@ -597,7 +597,7 @@ if (msg.content.startsWith(`+sug`)) {
  if (command == "za5") {
      let say = new Discord.RichEmbed()
          .setTitle('Text emboss :')
-    message.channel.send(`**#** \n ${zalgo(args.join(' '))}`);
+    message.channel.send(`**#** \n ${(args.join(' '))}`);
    }
  
  });
