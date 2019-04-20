@@ -571,6 +571,43 @@ message.channel.send(embed)
 });
 
 
+client.on('message', ra3d => {
+ var prefix = "+";
+                         let args = ra3d.content.split(" ").slice(1).join(" ")
+ if(ra3d.content.startsWith(prefix + 'ccolors')) {
+     if(!args) return ra3d.channel.send('`كم لون تريد؟؟`');
+              if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('**انت ماعندك برميشن `MANAGE_ROLES`**'); 
+               ra3d.channel.send(`**✅ |تم صنع __${args}__ لون**`);
+                   setInterval(function(){})
+                     let count = 0;
+                     let ecount = 0;
+           for(let x = 1; x < `${parseInt(args)+1}`; x++){
+             ra3d.guild.createRole({name:x,
+               color: 'RANDOM'})
+               }
+             }
+        });
+
+
+
+client.on('message',async Epic => {
+   var prefix = "+" ;
+   if(Epic.content.startsWith(prefix + "vonline")) {
+   if(!Epic.guild.member(Epic.author).hasPermissions('MANAGE_CHANNELS')) return Epic.reply(':x: **انا ماعندي برميشن**');
+   if(!Epic.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return Epic.reply(':x: **انت ماعندك برميشن**');
+   Epic.guild.createChannel(`Voice Online : [ ${Epic.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
+     console.log(`Voice Online Is Activation In ${Epic.guild.name}`);
+     c.overwritePermissions(Epic.guild.id, {
+       CONNECT: false,
+       SPEAK: false
+     });
+     setInterval(() => {
+       c.setName(`Voice Online :  ${Epic.guild.members.filter(m => m.voiceChannel).size} .`)
+     },1000);
+   });
+   }
+ });
+
 client.on('message', msg => { 
 if (msg.content.startsWith(`+report`)) {
 // تعريف الارجس
