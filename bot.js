@@ -548,6 +548,62 @@ if (msg.content.startsWith(`+sug`)) {
   }
 })
 
+
+ client.on('message', message => {
+ 	var prefix = "+";
+ if(!message.channel.guild) return;
+ if(message.content.startsWith(prefix + 'move')) {
+  if (message.member.hasPermission("MOVE_MEMBERS")) {
+  if (message.mentions.users.size === 0) {
+  return message.channel.send("``استخدم : " +prefix+ "move @User``")
+ }
+ if (message.member.voiceChannel != null) {
+  if (message.mentions.members.first().voiceChannel != null) {
+  var authorchannel = message.member.voiceChannelID;
+  var usermentioned = message.mentions.members.first().id;
+ var embed = new Discord.RichEmbed()
+  .setTitle("Succes!")
+  .setColor("#000000")
+  .setDescription(`✅ انت سحبت <@${usermentioned}> الى الروم الخاص بك`)
+ var embed = new Discord.RichEmbed()
+ .setTitle(`You are Moved in ${message.guild.name}`)
+  .setColor("RANDOM")
+ .setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
+  message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+ message.guild.members.get(usermentioned).send(embed)
+ } else {
+ message.channel.send("`انت لا تستطيع سحب"+ message.mentions.members.first() +" `الشخص يجب ان يكون بروم صوتي حتى يتم سحبه")
+ }
+ } else {
+  message.channel.send("**``يجب ان تكون داخل روم صوتي لسحب شخص ما``**")
+ }
+ } else {
+ message.react("❌")
+  }}});
+
+
+  client.on('message', message => {
+ 	 var prefix = "+";
+   if (message.author.bot) return;
+   if (!message.content.startsWith(prefix)) return;
+ 
+   let command = message.content.split(" ")[0];
+   command = command.slice(prefix.length);
+ 
+   let args = message.content.split(" ").slice(1);
+   
+  
+ 
+ if (command == "za5") {
+     let say = new Discord.RichEmbed()
+         .setTitle('Text emboss :')
+    message.channel.send(`**#** \n ${zalgo(args.join(' '))}`);
+   }
+ 
+ });
+ 
+
+
 client.on('message', message => {
      if(!message.channel.guild) return;
 var prefix = "+";
@@ -602,7 +658,7 @@ client.on('message',async Epic => {
        SPEAK: false
      });
      setInterval(() => {
-       c.setName(`Voice Online :  ${Epic.guild.members.filter(m => m.voiceChannel).size} .`)
+       c.setName(`༺ Voice Online ༻ : ༺ ${Epic.guild.members.filter(m => m.voiceChannel).size} ༻`)
      },1000);
    });
    }
