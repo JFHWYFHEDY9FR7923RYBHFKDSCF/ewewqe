@@ -548,6 +548,24 @@ if (msg.content.startsWith(`+sug`)) {
   }
 })
 
+ client.on('message', message => {
+ 	var prefix = "+";
+     if(message.content.startsWith(prefix + 'movevall')) {
+      if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**:x: انت ماعندك برمينش  `MOVE_MEMBERS`**');
+        if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**:x: انا ماعندي برميشن `MOVE_MEMBERS`**");
+     if (message.member.voiceChannel == null) return message.channel.send(`**يجب ان تكون بروم صوتي**`)
+      var author = message.member.voiceChannelID;
+      var m = message.guild.members.filter(m=>m.voiceChannel)
+      message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+      m.setVoiceChannel(author)
+      })
+      message.channel.send(`**:white_check_mark: تم سحب الكل الى رومك الصوتي**`)
+ 
+ 
+      }
+        });
+
+
 
  client.on('message', message => {
  	var prefix = "+";
