@@ -604,26 +604,7 @@ if (msg.content.startsWith(`+sug`)) {
   }}});
 
 
-  client.on('message', message => {
- 	 var prefix = "+";
-   if (message.author.bot) return;
-   if (!message.content.startsWith(prefix)) return;
- 
-   let command = message.content.split(" ")[0];
-   command = command.slice(prefix.length);
- 
-   let args = message.content.split(" ").slice(1);
-   
-  
- 
- if (command == "za5") {
-     let say = new Discord.RichEmbed()
-         .setTitle('Text emboss :')
-    message.channel.send(`**#** \n ${(args.join(' '))}`);
-   }
- 
- });
- 
+
 
 
 client.on('message', message => {
