@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 
 const Util = require('discord.js');
@@ -18,9 +17,6 @@ const ytdl = require('ytdl-core');
 const fs = require('fs');
 
 const gif = require("gif-search");
-
-const dateFormat = require('dateformat');
-
 
 const client = new Discord.Client({disableEveryone: true});
 
@@ -604,7 +600,26 @@ if (msg.content.startsWith(`+sug`)) {
   }}});
 
 
-
+  client.on('message', message => {
+ 	 var prefix = "+";
+   if (message.author.bot) return;
+   if (!message.content.startsWith(prefix)) return;
+ 
+   let command = message.content.split(" ")[0];
+   command = command.slice(prefix.length);
+ 
+   let args = message.content.split(" ").slice(1);
+   
+  
+ 
+ if (command == "za5") {
+     let say = new Discord.RichEmbed()
+         .setTitle('Text emboss :')
+    message.channel.send(`**#** \n ${(args.join(' '))}`);
+   }
+ 
+ });
+ 
 
 
 client.on('message', message => {
@@ -791,6 +806,83 @@ if (message.content.startsWith(prefix + 'trans')) {
 
 
 
+client.on("message", message => {
+            if(message.content.startsWith("+تقديم")) {
+        if(!message.channel.guild) return;
+                if(message.author.bot) return;
+        let channel = message.guild.channels.find("name", "التقديمات")
+            if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
+            if(channel) {
+            message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+              m.edit( message.member + ', **اسم البوت **' )
+              m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m1) => {
+                  m1 = m1.first();
+                  var name = m1.content;
+                  m1.delete();
+                  m.edit(message.member + ', **:timer:**').then( (m) =>{
+                      m.edit( message.member + ', **البوت بكم سيرفر + كم عضو يستخدمه **' )
+                      setTimeout(() => {
+                        m.delete()
+                      }, 10000);
+                      m.channel.awaitMessages( m2 => m2.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m2) => {
+                          m2 = m2.first();
+                          var age = m2.content;
+                          m2.delete()
+                          message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                            m.edit( message.member + ', **ايدي او رابط البوت**' )
+                            setTimeout(() => {
+                              m.delete()
+                            }, 10000);
+                            m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m3) => {
+                                m3 = m3.first();
+                                var ask = m3.content;
+                                m3.delete();
+                                message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                  m.edit( message.member + ', **مميزات البوت بجملة واحدة**' )
+                                  setTimeout(() => {
+                                    m.delete()
+                                  }, 10000);
+                                  m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m4) => {
+                                      m4 = m4.first();
+                                      var ask2 = m4.content;
+                                      m4.delete();
+                                      message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                        m.edit( message.member + ', **هل متأكد من تقديمك لسيرفرنا؟**' )
+                                        m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m5) => {
+                                            m5 = m5.first();
+                                            var ask3 = m5.content;
+                                            m5.delete();
+                      m.edit(message.member + ', **....جارى جمع البيانات**').then( (mtime)=>{
+                        setTimeout(() => {
+                          let embed = new Discord.RichEmbed()
+                        .setColor('RANDOM')
+                        .setTitle(`**تقديم ادارة** [__**${message.guild.name}**__]`)
+                        .addField('**`اسم البوت`**', `${name}` , true)
+                        .addField('**`عدد السيرفرات + المستخدمين`**', `${age}` , true)
+                        .addField('**`ايدي البوت او رابط البوت`**',`${ask}`)
+                        .addField('**`مميزات البوت`**',`${ask2}`)
+                        .addField('**`هل هو متأكد من التقديم لسيرفرنا؟`**',`${ask3}`)
+                        .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+                        channel.send(embed)
+                        }, 2500);
+                        setTimeout(() => {
+                          mtime.delete()
+                        }, 3000);
+ 
+                  })
+                })
+                })
+              })
+            })
+          })
+        })
+        })
+              })
+          })
+        })
+    }
+}
+        });
 
 
    client.on('message',async message => {
