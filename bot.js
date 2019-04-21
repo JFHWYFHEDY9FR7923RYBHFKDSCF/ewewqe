@@ -952,7 +952,7 @@ if(!message.channel.guild) return;
        
                           //دخولك الديسكورد
                           var day = `منذ ${days.toFixed(0)} يوم`
-                          ctx.font = '27px Arial Bold';نوع الخط
+                          ctx.font = '27px Arial Bold';
                           ctx.fontSize = '30px';
                           ctx.fillStyle = "#ffffff";
                           ctx.textAlign = "center";
@@ -1000,7 +1000,7 @@ if(!message.channel.guild) return;
     } else if (h.presence.status === 'offline') {
         status = 'اوف لاين';
     }
-                        ctx.font = '27px Arial Bold';نوع الخط
+                        ctx.font = '27px Arial Bold';
                         ctx.fontSize = '30px';
                         ctx.fillStyle = "#ffffff";//اللون
                         ctx.textAlign = "center";
