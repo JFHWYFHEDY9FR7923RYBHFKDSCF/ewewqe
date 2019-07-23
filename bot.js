@@ -55,7 +55,18 @@ client.on("message", message => {
 
 //bc online
 
-
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('+ownerbc')){
+if (message.author.id !== '444126346676011028') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+if(!message.author.id === '444126346676011028') return;
+message.channel.sendMessage('Now Sending |✅')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 
 
   client.on("message", message => {   // Alpha Codes Ghost
