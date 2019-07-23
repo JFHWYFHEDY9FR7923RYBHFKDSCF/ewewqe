@@ -33,7 +33,6 @@ const adminprefix = '#';
 var table = require('table').table
 
 client.on('ready', () => {
-client.user.setStatus("dnd");
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
@@ -60,7 +59,7 @@ client.user.setStatus("dnd");
 });
 
 client.on("message", message => {
-    if (message.content.startsWith("#obc")) {
+    if (message.content.startsWith("+obc")) {
                  if (!message.member.hasPermission("ADMINISTRATOR"))  return;   // Alpha Codes Ghost
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -121,89 +120,12 @@ client.on('ready',  () => {
   };     
   });
 
-  client.on('message', msg => {
-    if(msg.content === '#help')
-    msg.reply('Check Your DM :white_check_mark:')  // Alpha Codes Ghost
-  });
-  
-  
-  client.on("message", message => {
-    if (message.content === "#help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Help|هيلب
-  
-       ${prefix}obc | لأرسال برود كاست للكل  
-
-       ${prefix}bc  |  لأرسال برود كاست للأونلاين
-
-       ${prefix}offbc | لأرسال برود كاست للـ اوفلاين
-
-       ** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
-
- client.on("message", message => {
-    if (message.content === "#help-dev") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Commands Dev|اوامر ديف
-       ${prefix}sets | لعمل البوت ستريم
-       
-       ${prefix}setg | لعمل البوت بلاينق
-
-       ${prefix}setw | لعمل البوت يشاهد
-
-       ${prefix}setl | لعمل البوت يسمع اغاني
-
-       ${prefix}setava | لتغيير صورة البوت
-
-       ${prefix}setname | لتغيير اسم البوت
-                    
-       ** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
 
 
-const developers = ["444126346676011028","569233904389718028"]
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');  // Alpha Codes Ghost
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'setg')) {
-    client.user.setGame(argresult);
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-     if (message.content === (adminprefix + "leave")) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith(adminprefix + 'setw')) {  // Alpha Codes Ghost
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'setl')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'sets')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/dream");  // Alpha Codes Ghost
-      message.channel.send(`**✅**`)
-  }
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** `)
-} else
-if (message.content.startsWith(adminprefix + 'setava')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
-});
+ 
+
+
+
 
 
 
