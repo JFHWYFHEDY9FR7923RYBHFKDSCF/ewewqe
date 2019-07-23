@@ -59,7 +59,7 @@ client.on('ready', () => {
 });
 
 client.on("message", message => {
-    if (message.content.startsWith("+obc")) {
+    if (message.content.startsWith("+bc")) {
                  if (!message.member.hasPermission("ADMINISTRATOR"))  return;   // Alpha Codes Ghost
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -79,7 +79,7 @@ client.on("message", message => {
 
   client.on("message", message => {   // Alpha Codes Ghost
    
-              if (message.content.startsWith(prefix + "bc")) {    // Alpha Codes Ghost
+              if (message.content.startsWith(prefix + "obc")) {    // Alpha Codes Ghost
                            if (!message.member.hasPermission("ADMINISTRATOR"))  return;   // Alpha Codes Ghost
     let args = message.content.split(" ").slice(1);  // Alpha Codes Ghost
     var argresult = args.join(' '); 
